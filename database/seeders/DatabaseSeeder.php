@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        $permission0 = Permission::create(['name' => 'administration']);
-        $role0 = Role::create(['name' => 'administration']);
+        $permission0 = Permission::create(['name' => 'admin']);
+        $role0 = Role::create(['name' => 'admin']);
         $role0->givePermissionTo($permission0);
         $user->assignRole($role0);
 

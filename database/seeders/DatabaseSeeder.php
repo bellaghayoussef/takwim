@@ -16,17 +16,22 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::create([
-        //     'firstnamear' => 'Test User',
-        //     'lastnamear' => 'test',
-        //     'firstnameen' => 'Test User',
-        //     'lastnameen' => 'test',
-        //     'uid' => '12345678',
-        //     'phone' => '56818880',
-        //     'email' => 'test@example.com',
-        //     'password' => 'password',
+        $user =  \App\Models\User::create([
+            'firstnamear' => 'Test User',
+            'lastnamear' => 'test',
+            'firstnameen' => 'Test User',
+            'lastnameen' => 'test',
+            'uid' => '12345678',
+            'phone' => '56818880',
+            'email' => 'test@example.com',
+            'password' => 'password',
 
-        // ]);
+        ]);
+
+        $permission0 = Permission::create(['name' => 'administration']);
+        $role0 = Role::create(['name' => 'administration']);
+        $role0->givePermissionTo($permission0);
+        $user->assignRole($role0);
 
         $permission = Permission::create(['name' => 'administration']);
         $role = Role::create(['name' => 'administration']);
